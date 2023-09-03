@@ -22,6 +22,7 @@ public class Client {
 			DataOutputStream salida = new DataOutputStream(clientServer.getOutputStream());
 			
 			
+			
 			int byteLeidos;
 			while( (byteLeidos = fis.read()) != -1) {
 				salida.write(byteLeidos);
