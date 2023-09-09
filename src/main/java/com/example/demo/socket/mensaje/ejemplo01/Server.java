@@ -1,4 +1,4 @@
-package com.example.demo.socket.mensaje;
+package com.example.demo.socket.mensaje.ejemplo01;
 
 import java.io.BufferedReader;
 import java.io.IOException;

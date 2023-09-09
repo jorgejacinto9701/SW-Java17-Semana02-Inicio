@@ -1,4 +1,4 @@
-package com.example.demo.socket.archivos;
+package com.example.demo.socket.archivos.ejemplo01;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

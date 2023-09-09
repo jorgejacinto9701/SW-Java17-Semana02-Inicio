@@ -1,9 +1,9 @@
-package com.example.demo.socket.archivos;
+package com.example.demo.socket.mensaje.ejemplo01;
 
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -14,25 +14,20 @@ public class Client {
 	
 	public Client() {
 		try {
-			Socket clientServer = new Socket(IP, PORT);
+			Socket clientSocket = new Socket(IP, PORT);
 			System.out.println("-------- 1 Iniciando comunicación ----------");
 			
-			File fileOrigen = new File("D:/cliente/Java-Jacinto.png");
-			FileInputStream fis = new FileInputStream(fileOrigen);
-			DataOutputStream salida = new DataOutputStream(clientServer.getOutputStream());
+			//flujos de comunicación
+			BufferedReader entrada = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+			PrintWriter salida = new PrintWriter(clientSocket.getOutputStream(), true);
 			
+			salida.println("Vip");
 			
-			
-			int byteLeidos;
-			while( (byteLeidos = fis.read()) != -1) {
-				salida.write(byteLeidos);
-			}
-			
-			fis.close();
-			salida.close();
+			String precio = entrada.readLine();
+			System.out.println("El precio es ==> " + precio);
 			
 			System.out.println("-------- 2 Finalizando comunicación --------");
-			clientServer.close();
+			clientSocket.close();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
