@@ -10,13 +10,12 @@ public class SocketServerRecibirArchivosArchivo {
 	private final Integer PUERTO = 3456;
 
 	private Socket cliente;
-
+	@SuppressWarnings("unused")
 	public SocketServerRecibirArchivosArchivo() {
 		System.out.println("FileServer: esperando peticiones TCP/IP");
 		System.out.println("_______________________________________");
 
-		try {
-			ServerSocket servidor = new ServerSocket(PUERTO);
+		try (ServerSocket servidor = new ServerSocket(PUERTO)) {
 			while (true) {
 
 				cliente = servidor.accept();
@@ -24,6 +23,7 @@ public class SocketServerRecibirArchivosArchivo {
 				// 1 RECIBE DEL NOMBRE DEL ARCHIVO
 				// ====================================
 				// Permite el envio de cualquier objeto
+				
 				ObjectOutputStream ous = new ObjectOutputStream(cliente.getOutputStream());
 				ObjectInputStream ois = new ObjectInputStream(cliente.getInputStream());
 

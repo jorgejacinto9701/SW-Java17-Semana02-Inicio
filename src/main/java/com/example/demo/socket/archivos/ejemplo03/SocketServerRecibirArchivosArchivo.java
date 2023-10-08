@@ -1,8 +1,5 @@
 package com.example.demo.socket.archivos.ejemplo03;
 
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
@@ -19,8 +16,7 @@ public class SocketServerRecibirArchivosArchivo {
 		System.out.println("FileServer: esperando peticiones TCP/IP");
 		System.out.println("_______________________________________");
 
-		try {
-			ServerSocket servidor = new ServerSocket(PUERTO);
+		try (ServerSocket servidor = new ServerSocket(PUERTO)) {
 			while (true) {
 
 				cliente = servidor.accept();
