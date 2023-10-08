@@ -1,13 +1,9 @@
 package com.example.demo.socket.archivos.ejemplo02;
 
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.file.Files;
 
 public class SocketServerRecibirArchivosArchivo {
 
